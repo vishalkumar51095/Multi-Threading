@@ -38,4 +38,5 @@ public class SynchronizedExample extends Thread{
             System.err.println(ex);
         }
     }
+    
 }
