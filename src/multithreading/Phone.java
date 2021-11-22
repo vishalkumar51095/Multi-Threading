@@ -9,6 +9,16 @@ package multithreading;
  *
  * @author maury
  */
-public class Phone {
+public class Phone extends Thread {
+        String number;
+
+    public Phone(String number) {
+        this.number = number;
+    }
+    public synchronized void call (String number)
+    {
+        
+    }
+        
     
 }
