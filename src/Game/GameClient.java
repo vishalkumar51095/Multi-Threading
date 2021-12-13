@@ -1,3 +1,5 @@
+package Game;
+
 import java.net.*;
 import java.io.*;
 import java.net.Socket;
@@ -6,7 +8,8 @@ public class GameClient
 {
     public static void main(String[] args) throws IOException {
         int portno=1000;
-        Socket s=new Socket("localhost", portno);
+        String ipaddress="192.168.244.41";
+        Socket s=new Socket(ipaddress, portno);
         PrintWriter pw=new PrintWriter(s.getOutputStream());
     BufferedReader br=new BufferedReader(new InputStreamReader( s.getInputStream()));
     ReadThread rt=new ReadThread(br);
@@ -28,6 +31,7 @@ class ReadThread extends Thread
         this.br = br;
     }
     BufferedReader br;
+    @Override
     public void run()
     {
         try

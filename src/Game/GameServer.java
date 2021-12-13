@@ -1,3 +1,5 @@
+package Game;
+
 import java.net.*;
 import java.io.*;
 import java.util.Scanner;
@@ -15,12 +17,14 @@ int num=4;//sc.nextInt();
 System.out.println("hihiiii");
 System.out.println("Connecting");
 ServerSocket ss=new ServerSocket(portno);
-int count=0;
+
+    
 Socket s=ss.accept();
         PrintWriter writer1=new PrintWriter(s.getOutputStream());  
         BufferedReader br1=new BufferedReader(new InputStreamReader(s.getInputStream()));
         s=ss.accept();
-         PrintWriter writer2=new PrintWriter(s.getOutputStream());  
+        System.out.println("Connected");
+        PrintWriter writer2=new PrintWriter(s.getOutputStream());  
         BufferedReader br2=new BufferedReader(new InputStreamReader(s.getInputStream()));
         EchoThread et1=new EchoThread(writer1,writer2,br1);
        EchoThread et2=new EchoThread(writer1,writer2,br2);
@@ -53,8 +57,7 @@ Socket s=ss.accept();
               writer1.println(str);
               writer2.println(str);
               writer1.flush();
-              writer2.flush();
-              
+              writer2.flush();         
           }
           }
           catch(Exception ex)
